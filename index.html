@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#808080">
+    <title>JLABS-Speedy</title>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./index-assets/jlabs_main.png">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./index.js" defer></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker
+                    .register("./sw.js")
+                    .then(registration => {
+                        console.log("Service Worker registered with scope:", registration.scope);
+                    })
+                    .catch(error => {
+                        console.error("Service Worker registration failed:", error);
+                    });
+            });
+        }
+    </script>
+    <style>
+        /*  header greeting css*/
+        .fade-in {
+            opacity: 0;
+            transition: opacity 2s ease-in;
+        }
+
+        .fade-in.fade-in-active {
+            opacity: 1;
+        }
+
+        .fade-out {
+            opacity: 1;
+            transition: opacity 2s ease-out;
+        }
+
+        .fade-out.fade-out-active {
+            opacity: 0;
+        }
+
+        #text {
+            margin-top: 1.5em;
+            margin-bottom: 0;
+            font-weight: 400;
+            font-size: 12px;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            color: rgb(220, 235, 12);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+
+    <!-- script for header greeting -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var textElement = document.getElementById('text');
+
+            // Set timeout for 15 seconds to fade out the text
+            setTimeout(function () {
+                textElement.classList.remove('fade-in-active');
+                textElement.classList.add('fade-out-active');
+            }, 5000);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div><img src="./index-assets/jlabs_main.png" alt="jlabs logo">
+                <p class="app-name">Speedy_<span style="color: rgb(220, 235, 12);;">Artisans' Companion</span></p>
+            </div>
+            <a href="./about.html">
+                <img src="./index-assets/Orthogonal View.png" width="25px" alt="about-btn">
+            </a>
+        </header>
+        <div id="text" class="fade-in fade-in-active">Welcome! <br> Thanks for using me:) always cross check your values</div>
+        <nav>
+            <div class="card">
+                <!-- <h4 class="label">Fabricator</h4> -->
+                <div class="card-menu" id="fabricator-menu">
+                    <a href="./pages/sliding fabricator/index.html" class="item">
+                        <img src="./index-assets/Drill yellow.png" alt="">
+                        <p>speedy sliding</p>
+                    </a>
+                    <a href="./pages/casement fabricator/index.html" class="item">
+                        <img src="./index-assets//Drill 1280.png" alt="">
+                        <p>speedy casement</p>
+                    </a>
+                </div>
+            </div>
+            <div class="pro-tools">
+                <h4>Pro Tools: Coming Soon</h4>
+            </div>
+            <div class="pro-features card">
+                <h4 class="label">Pro Features: Coming Soon</h4>
+                <div class="card-menu" id="pro-features"></div>
+            </div>
+        </nav>
+
+        <footer>
+            <h5>JLABS-Technologies 2024©</h5>
+        </footer>
+    </div>
+</body>
+
+</html>

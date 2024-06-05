@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- JLABS-Tech_solutions -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speedy_Slide</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header>
+    <div > <img src="./assets/Drill yellow.png" alt="Sewing Tape Measure"><span class="app-name">Speedy_Sliding</span></div>
+     
+    <button class="secBtn" onclick="updateSellingPriceBtn()">
+      Update prices
+    </button>
+  </header>
+  <div class="container">
+    <main>
+      <div class="measurement-ui">
+        <div class="page-title">Enter Measurements</div>
+        <form action="#">
+          <input id="width" type="number" min="499" placeholder="Enter width(mm) " required />
+          <br />
+          <input id="height" type="number" min="499" placeholder="Enter height(mm)" required />
+          <br />
+        </form>
+        <button class="priBtn" id="fabricateBtn">Fabricate</button>
+        <!-- <button class="priBtn" id="FabricateBtn">Add Prices</button> -->
+      </div>
+      <div class="price-UI" id="price-UI">
+        <!-- <div class="page-title">/div> -->
+        <form action="#">
+          <fieldset>
+            <legend>Profiles</legend>
+            <label for="">Enter current selling price</label><br />
+            <label for="track">Track</label>
+            <input type="number" placeholder="Track" id="item1" for="track" />
+            <br />
+            <label for="jam">Jam</label>
+            <input type="number" placeholder="Jam" id="item2" for="jam" />
+            <br />
+            <label for="top">Top</label>
+            <input type="number" placeholder="Top" id="item3" for="top" />
+            <br />
+
+            <label for="bottom">bottom</label>
+            <input type="number" placeholder="bottom" id="item4" for="bottom" />
+            <br />
+            <label for="interlock">Interlock</label>
+            <input type="number" placeholder="Interlock-style" id="item5" for="interlock" />
+            <br />
+            <label for="lockstyle">Lockstyle</label>
+            <input type="number" placeholder="Lock-style" id="item6" for="lockstyle" />
+            <br />
+          </fieldset>
+
+          <fieldset>
+            <legend>Accesories</legend>
+            <label for="">Enter current selling price</label><br />
+            <label for="Glass">Glass</label>
+            <input type="number" placeholder="Glass per Sheet cost" id="item7" for="glass" />
+            <br />
+            <label for="roller">Roller</label>
+            <input type="number" placeholder="Roller" id="item8" for="roller" />
+            <br />
+            <label for="rubber">Rubber</label>
+            <input type="number" placeholder="Rubber" id="item9" for="rubber" />
+            <br />
+            <label for="key">Key</label>
+            <input type="number" placeholder="key" id="item10" for="key" />
+            <br />
+            <label for="coupling-screw">coupling Screw</label>
+            <input type="number" placeholder="coupling Screw" id="item11" for="coupling-screw" />
+            <br />
+            <label for="jam-screw">Jam Screw</label>
+            <input type="number" placeholder="jam Screw" id="item12" for="jam-screw" />
+            <br />
+            <label for="brush">Brush</label>
+            <input type="number" placeholder="Brush" id="item13" for="brush" />
+            <br />
+          </fieldset>
+          <button id="updatePriceBtn" class="priBtn" onclick="UpdateBtn()">
+            Update ✅
+          </button>
+        </form>
+      </div>
+
+      <div class="output" id="output">
+        <div class="page-title">Materials</div>
+
+        <ul class="materials">
+          <div id="track-div" class="item">
+            <li id="track-size"></li>
+            <span class="show" id="track-cost"></span>
+            <button onclick="removeDiv('track-div')" id="track-remove">
+              x
+            </button>
+          </div>
+
+          <div id="jam-div" class="item">
+            <li id="jam-size"></li>
+            <span class="show" id="jam-cost"></span>
+            <button onclick="removeDiv('jam-div')" id="jam-remove">x</button>
+          </div>
+
+          <div id="interlock-div" class="item">
+            <li id="interlock-size"></li>
+            <span class="show" id="interlock-cost"></span><button onclick="removeDiv('interlock-div')"
+              id="interlock-remove">
+              x
+            </button>
+          </div>
+
+          <div id="lockstyle-div" class="item">
+            <li id="lockstyle-size"></li>
+            <span class="show" id="lockstyle-cost"></span><button onclick="removeDiv('lockstyle-div')"
+              id="lockstyle-remove">
+              x
+            </button>
+          </div>
+
+          <div id="top-div" class="item">
+            <li id="top-size"></li>
+            <span class="show" id="top-cost"></span>
+            <button onclick="removeDiv('top-div')" id="top-remove">x</button>
+          </div>
+
+          <div id="bottom-div" class="item">
+            <li id="bottom-size"></li>
+            <span class="show" id="bottom-cost"></span>
+            <button onclick="removeDiv('bottom-div')" id="bottom-remove">
+              x
+            </button>
+          </div>
+
+          <div id="glass-div" class="item">
+            <li id="glass-size"></li>
+            <span class="show" id="glass-cost"></span>
+            <button onclick="removeDiv('glass-div')" id="glass-remove">
+              x
+            </button>
+          </div>
+
+          <div id="roller-div" class="item">
+            <li id="roller-set"></li>
+            <span class="show" id="roller-cost"></span>
+            <button onclick="removeDiv('roller-div')" id="roller-remove">
+              x
+            </button>
+          </div>
+
+          <div id="key-div" class="item">
+            <li id="key-set"></li>
+            <span class="show" id="key-cost"></span>
+            <button onclick="removeDiv('key-div')" id="key-remove">x</button>
+          </div>
+
+          <div id="rubber-div" class="item">
+            <li id="rubber-size"></li>
+            <span class="show" id="rubber-cost"></span>
+            <button onclick="removeDiv('rubber-div')" id="rubber-remove">
+              x
+            </button>
+          </div>
+
+          <div id="brush-div" class="item">
+            <li id="brush-size"></li>
+            <span class="show" id="brush-cost"></span>
+            <button onclick="removeDiv('brush-div')" id="brush-remove">
+              x
+            </button>
+          </div>
+
+          <div id="coupling-screw-div" class="item">
+            <li id="coupling-screw-qty"></li>
+            <span class="show" id="coupling-screw-cost"></span>
+            <button onclick="removeDiv('coupling-screw-div')" id="coupling-screw-remove">
+              x
+            </button>
+          </div>
+
+          <div id="jam-screw-div" class="item">
+            <li id="jam-screw-qty"></li>
+            <span class="show" id="jam-screw-cost"></span>
+            <button onclick="removeDiv('jam-screw-div')" id="jam-screw-remove">
+              x
+            </button>
+          </div>
+        </ul>
+        <button id="getPriceBtn" class="priBtn">See Price ✅</button>
+      </div>
+    </main>
+  </div>
+
+
+  <script src="./sliding.js"></script>
+</body>
+
+</html>

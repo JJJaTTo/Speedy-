@@ -1,0 +1,201 @@
+/* Base Styles */
+:root {
+    --primary-color: #000c18;
+    --secondary-color: #666;
+    --background-color: #060b20;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --padding: 1em;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    width: 100%;
+    overflow-x: hidden;
+    padding-top: 4em;
+    /* Offset for fixed header */
+    padding: var(--padding);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 0.5em .5em;
+    opacity: 95%;
+    background-image: url(./index-assets/art-tools-mini.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:auto;
+    height: 45px;
+}
+header div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header div p {
+    font-size: 15px;
+    text-align: left;
+    font-weight: 700;
+    display: block;
+}
+header div p span{
+    display: block;
+    font-size: 8px;
+    text-align: left;
+    font-weight: 600;
+}
+header div img{
+    width: 40px;
+}
+nav{
+    margin-top: -1em;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--padding);
+    text-align: center;
+
+}
+
+.card,
+.pro-tools,
+.pro-features {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
+    margin: 1.5em auto;
+    padding: .5em;
+    max-width: 600px;
+    
+}
+
+.card {
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+/* .card h4 img{ background-color: antiquewhite; margin-top: 5px;} */
+.card h4 {
+    margin: 0.5em 0;
+    font-size: 1.2em;
+    align-items: center;
+    text-shadow:#000c18;
+}
+
+.card-menu {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.item {
+    text-decoration: none;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
+    padding: 1em;
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item img {
+    max-width: 90%;
+    border-radius: 8px;
+    height: 18vh;
+    object-fit:cover;
+    background-color: aliceblue;
+}
+
+.item p {
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: 0.5em;
+    color: white;
+}
+
+.pro-tools {
+    background-image: url(./index-assets/mechnical_artisan.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label{
+    color: antiquewhite;
+}
+
+.pro-features {
+    color: var(--primary-color);
+}
+
+.feature-item {
+    min-height: 15vh;
+}
+
+footer {
+    margin-top: 2em;
+    margin-bottom: 0;
+    font-size: 0.8em;
+    color: aliceblue;
+    
+}
+
+@media (max-width: 768px) {
+
+    .card,
+    .pro-tools,
+    .pro-features {
+        max-width: 90%;
+    }
+
+    .item {
+        flex: 1 1 100%;
+    }
+
+    .item img {
+        max-width: 90%;
+        height: auto;
+    }
+    .card {
+        background-image: url(./index-assets/tools\ filped.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+    }
+}

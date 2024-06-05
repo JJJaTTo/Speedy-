@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- JLABS-Tech_solutions -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speedy_Case</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div > <img src="./assets/Drill.png" alt=""><span class="app-name">Speedy_Casement</span></div>
+      <button class="secBtn" onclick="updateSellingPriceBtn()">
+        Update prices
+      </button>
+    </header>
+    <div class="container">
+      <main>
+        <div class="measurement-ui">
+          <div class="page-title">Enter Measurements</div>
+          <form action="#">
+            <input
+              id="width"
+              type="number"
+              min="499"
+              placeholder="Enter width(mm) "
+              required
+            />
+            <br />
+            <input
+              id="height"
+              type="number"
+              min="499"
+              placeholder="Enter height(mm)"
+              required
+            />
+            <br />
+          </form>
+          <button class="priBtn" id="fabricateBtn">Fabricate</button>
+          <!-- <button class="priBtn" id="FabricateBtn">Add Prices</button> -->
+        </div>
+        <div class="price-UI" id="price-UI">
+          <!-- <div class="page-title">/div> -->
+          <form action="#">
+            <fieldset>
+              <legend>Profiles</legend>
+              <label for="">Enter current selling price</label><br />
+              <label for="width">Width</label>
+              <input  requiredtype="number" placeholder="Width per length" id="item1" for="width" />
+              <br />
+              <label for="height">Height</label>
+              <input  requiredtype="number" placeholder="Height per length" id="item2" for="height" />
+              <br />
+              <label for="decurve-width">Decurve</label>
+              <input  requiredtype="number" placeholder="Decurve per length" id="item3" for="decurve-width" />
+              <br />
+
+              <label for="decurve-Heigth">Decurve</label>
+              <input required
+                type="number"
+                placeholder="Decurve per length"
+                id="item4"
+                for="decurve-Heigth"
+              />
+              <br />
+              <label for="mullion">Mullion</label>
+              <input required
+                type="number"
+                placeholder="Mullion per length"
+                id="item5"
+                for="mullion"
+              />
+              <br />
+              
+            </fieldset>
+
+            <fieldset>
+              <legend>Accesories</legend>
+              <label for="">Enter current selling price</label><br />
+              <label for="stopper">Stopper</label>
+              <input required
+                type="number"
+                placeholder="Stopper price per set"
+                id="item6"
+                for="stopper"
+              />
+              <br />
+              <label for="Glass">Glass</label>
+              <input required
+                type="number"
+                placeholder="Glass per Sheet cost"
+                id="item7"
+                for="glass"
+              />
+              <br />
+              <label for="hinges">hinges</label>
+              <input required
+                type="number"
+                placeholder="hinges price per set"
+                id="item8"
+                for="hinges"
+              />
+              <br />
+              <label for="rubber">Rubber</label>
+              <input required
+                type="number"
+                placeholder="Rubber price per roll"
+                id="item9"
+                for="rubber"
+              />
+              <br />
+              <label for="handle">handle</label>
+              <input required type="number" placeholder="handle price per set" id="item10" for="handle" />
+              <br />
+              <label for="coupling-screw">coupling Screw</label>
+              <input required
+                type="number"
+                placeholder="coupling Screw pcs"
+                id="item11"
+                for="coupling-screw"
+              />
+              <br />
+              <label for="jam-screw">Jam Screw</label>
+              <input required
+                type="number"
+                placeholder="Jam Screw pcs"
+                id="item12"
+                for="jam-screw"
+              />
+              <br />
+              <label for="brush">Brush</label>
+              <input required
+                type="number"
+                placeholder="Brush price per meter"
+                id="item13"
+                for="brush"
+              />
+              <br />
+              <label for="angle">Angle(40|40)</label>
+              <input required
+                type="number"
+                placeholder="Angle(40|40) per length"
+                id="item14"
+                for="angle"
+              />
+              <br />
+            </fieldset>
+            <button id="updatePriceBtn" class="priBtn" onclick="UpdateBtn()">
+              Update ✅
+            </button>
+          </form>
+        </div>
+
+        <div class="output" id="output">
+          <div class="page-title">Materials</div>
+
+          <ul class="materials">
+            <div id="width-div" class="item">
+              <li id="width-size"></li>
+              <span class="show" id="width-cost"></span>
+              <button onclick="removeDiv('width-div')" id="width-remove">
+                x
+              </button>
+            </div>
+  
+            <div id="height-div" class="item">
+              <li id="height-size"></li>
+              <span class="show" id="height-cost"></span>
+              <button onclick="removeDiv('height-div')" id="height-remove">x</button>
+            </div>
+  
+            <div id="decurve-width-div" class="item">
+              <li id="decurve-width-size"></li>
+              <span class="show" id="decurve-width-cost"></span><button onclick="removeDiv('decurve-width-div')"
+                id="decurve-width-remove">
+                x
+              </button>
+            </div>
+  
+            <div id="decurve-height-div" class="item">
+              <li id="decurve-height-size"></li>
+              <span class="show" id="decurve-height-cost"></span><button onclick="removeDiv('decurve-height-div')"
+                id="decurve-height-remove">
+                x
+              </button>
+            </div>
+  
+            <div id="mullion-div" class="item">
+              <li id="mullion-size"></li>
+              <span class="show" id="mullion-cost"></span>
+              <button onclick="removeDiv('mullion-div')" id="mullion-remove">x</button>
+            </div>
+  
+            <div id="stopper-div" class="item">
+              <li id="stopper-set"></li>
+              <span class="show" id="stopper-cost"></span>
+              <button onclick="removeDiv('stopper-div')" id="stopper-remove">
+                x
+              </button>
+            </div>
+  
+            <div id="glass-div" class="item">
+              <li id="glass-size"></li>
+              <span class="show" id="glass-cost"></span>
+              <button onclick="removeDiv('glass-div')" id="glass-remove">
+                x
+              </button>
+            </div>
+  
+            <div id="hinges-div" class="item">
+              <li id="hinges-set"></li>
+              <span class="show" id="hinges-cost"></span>
+              <button onclick="removeDiv('hinges-div')" id="hinges-remove">
+                x
+              </button>
+            </div>
+  
+            <div id="handle-div" class="item">
+              <li id="handle-set"></li>
+              <span class="show" id="handle-cost"></span>
+              <button onclick="removeDiv('handle-div')" id="handle-remove">x</button>
+            </div>
+  
+            <div id="rubber-div" class="item">
+              <li id="rubber-qty"></li>
+              <span class="show" id="rubber-cost"></span>
+              <button onclick="removeDiv('rubber-div')" id="rubber-remove">
+                x
+              </button>
+            </div>
+  
+            <div id="brush-div" class="item">
+              <li id="brush-qty"></li>
+              <span class="show" id="brush-cost"></span>
+              <button onclick="removeDiv('brush-div')" id="brush-remove">
+                x
+              </button>
+            </div>
+  
+            <div id="coupling-screw-div" class="item">
+              <li id="coupling-screw-qty"></li>
+              <span class="show" id="coupling-screw-cost"></span>
+              <button onclick="removeDiv('coupling-screw-div')" id="coupling-screw-remove">
+                x
+              </button>
+            </div>
+  
+            <div id="jam-screw-div" class="item">
+              <li id="jam-screw-qty"></li>
+              <span class="show" id="jam-screw-cost"></span>
+              <button onclick="removeDiv('jam-screw-div')" id="jam-screw-remove">
+                x
+              </button>
+            </div>
+            
+            <div id="angle-div" class="item">
+              <li id="angle-qty"></li>
+              <span class="show" id="angle-cost"></span>
+              <button onclick="removeDiv('angle-div')" id="angle-remove">
+                x
+              </button>
+            </div>
+          </ul>
+          <button id="getPriceBtn" class="priBtn">See Price ✅</button>
+        </div>
+      </main>
+    </div>
+        </div>
+      </main>
+    </div>
+   
+
+    <script src="./casement.js"></script>
+  </body>
+</html>
