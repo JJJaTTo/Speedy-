@@ -263,7 +263,7 @@ window.onload = function () {
     var inputId = 'item' + i;
     var storedVal = localStorage.getItem(inputId);
     if (storedVal) {
-      document.getElementById(inputId).value = storedValue;
+      document.getElementById(inputId).value = storedVal;
     } else (null)
   }
 }
