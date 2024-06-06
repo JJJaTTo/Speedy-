@@ -146,8 +146,8 @@ function getPrice() {
 function saveNewPrice() {
   for (var i = 1; i <= 13; i++) {
     var inputId = 'item' + i;
-    var inputValue = document.getElementById(inputId).value;
-    localStorage.setItem(inputId, inputValue)
+    var inputValueForSlide = document.getElementById(inputId).value;
+    localStorage.setItem(inputId, inputValueForSlide)
   };
   __('#updatePriceBtn').style.color = 'green';
 
@@ -261,9 +261,9 @@ function UpdateBtn() {
 window.onload = function () {
   for (var i = 1; i <= 14; i++) {
     var inputId = 'item' + i;
-    var storedVal = localStorage.getItem(inputId);
-    if (storedVal) {
-      document.getElementById(inputId).value = storedVal;
+    var storedValForSlide = localStorage.getItem(inputId);
+    if (storedValForSlide) {
+      document.getElementById(inputId).value = storedValForSlide;
     } else (null)
   }
 }

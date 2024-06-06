@@ -157,8 +157,8 @@ function getPrice() {
 function saveNewPrice() {
     for (var i = 1; i <= 14; i++) {
         var inputIds = 'item' + i;
-        var inputValue = document.getElementById(inputIds).value;
-        localStorage.setItem(inputIds, inputValue)
+        var inputValueForCasement = document.getElementById(inputIds).value;
+        localStorage.setItem(inputIds, inputValueForCasement)
     };
     __('#updatePriceBtn').style.color = 'green';
 
@@ -293,9 +293,9 @@ function UpdateBtn() {
 window.onload = function () {
     for (var i = 1; i <= 14; i++) {
         var inputIds = 'item' + i;
-        var storedValue = localStorage.getItem(inputIds);
-        if (storedValue) {
-            document.getElementById(inputIds).value = storedValue;
+        var storedValueForCasement = localStorage.getItem(inputIds);
+        if (storedValueForCasement) {
+            document.getElementById(inputIds).value = storedValueForCasement;
         } else (null)
     }
 }
