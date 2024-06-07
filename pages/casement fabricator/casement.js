@@ -155,10 +155,11 @@ function getPrice() {
 };
 
 function saveNewPrice() {
-    for (var i = 1; i <= 14; i++) {
+    for (var i = 100; i <= 112; i++) {
         var inputIds = 'item' + i;
-        var inputValueForCasement = document.getElementById(inputIds).value;
-        localStorage.setItem(inputIds, inputValueForCasement)
+        let inputValueForCasement = document.getElementById(inputIds).value;
+        localStorage.setItem(inputIds, JSON.stringify(inputValueForCasement))
+        
     };
     __('#updatePriceBtn').style.color = 'green';
 
@@ -291,9 +292,10 @@ function UpdateBtn() {
 
 // populate prices input with previous values stored on  local storage
 window.onload = function () {
-    for (var i = 1; i <= 14; i++) {
+    for (var i = 100; i <= 114; i++) {
         var inputIds = 'item' + i;
-        var storedValueForCasement = localStorage.getItem(inputIds);
+        let storedValueForCasement = localStorage.getItem(inputIds);
+        storedValueForCasement  = JSON.parse(storedValueForCasement)
         if (storedValueForCasement) {
             document.getElementById(inputIds).value = storedValueForCasement;
         } else (null)
